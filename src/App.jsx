@@ -1,6 +1,6 @@
 import './All.css'
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   Route,
   Outlet,
@@ -10,6 +10,7 @@ import Navbar from './Navbar';
 import Calculator from './pages/Calculator';
 import NotFound from './pages/NotFound';
 import Todo from './pages/Todo';
+import InitialTasks from './pages/InitialTasks';
 
 const FullPage = () =>{
   return(
@@ -22,7 +23,7 @@ const FullPage = () =>{
   )
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <FullPage/>,
@@ -48,7 +49,15 @@ const router = createBrowserRouter([
     },],
   },
   {
-    path: "*",
+    path: "/initial",
+    element: <FullPage/>,
+    children:[{
+      path: "/initial",
+      element: <InitialTasks />,
+    },],
+  },
+  {
+    path: "/*",
     element: <NotFound/>,
   },
 ]);
