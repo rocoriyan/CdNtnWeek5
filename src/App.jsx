@@ -14,23 +14,19 @@ function App() {
     sum = displayNum;
   }
 
+  function cleanAndEval(expression){
+    expression = expression.replace("×", "*");
+    expression = expression.replace("÷", "/");
+    expression = expression.replace("–", "-");
+    let evaluatedSum = evaluate(expression);
+    return evaluatedSum;
+  }
+
   const buttonValues = ["7","8","9","÷","4","5","6","×","1","2","3","–","C","0","+","="];
 
   function handleClick(value){
     if(value == "="){
-      sum = evaluate(displayNum);
-      setDisplayNum(sum);
-    }
-    else if(value == "×"){
-      sum=`${sum}*`;
-      setDisplayNum(sum);
-    }
-    else if(value == "÷"){
-      sum=`${sum}/`;
-      setDisplayNum(sum);
-    }
-    else if(value == "–"){
-      sum=`${sum}-`;
+      sum = cleanAndEval(displayNum);
       setDisplayNum(sum);
     }
     else if(value == "C"){
@@ -46,9 +42,9 @@ function App() {
   return (
     <div className="mainContainer">
       <div className="navbar">
-        <button>Early tasks</button>
-        <button>Calculator</button>
-        <button>To do list</button>
+        <button onClick="">Early tasks</button>
+        <button onClick ="">Calculator</button>
+        <button onClick ="">To do list</button>
       </div>
       <div className="main calculator">
         <h1>Calculator App</h1>
@@ -61,6 +57,9 @@ function App() {
               <button key={index} className="calcButton" onClick={() => handleClick(buttonValue)}>{buttonValue}</button>
           )})}
         </div>
+      </div>
+      <div className="main todo">
+        <p>cock</p>
       </div>
     </div>
   )
