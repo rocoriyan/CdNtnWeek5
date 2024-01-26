@@ -56,6 +56,7 @@
   height: 55px;
   border: 2px black solid;
   overflow-y: hidden;
+  padding-right:5px;
 }
 
 .calcDisplay p{
