@@ -86,3 +86,13 @@ body{
 .calcButton p{
   margin: 0;
 }
+
+.listedTask{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listedTask button{
+  height:max-content
+}

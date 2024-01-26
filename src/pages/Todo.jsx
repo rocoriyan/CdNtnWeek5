@@ -13,7 +13,7 @@ function Todo() {
     setTasks(tasksCopy);
   }
 
-  const removeTask = (removedTask) => {
+  const removeTask = (index) => {
     let tasksCopy = [...tasks];
     tasksCopy.splice(index, 1);
     setTasks(tasksCopy);
@@ -46,7 +46,7 @@ function Todo() {
 
 export const ListedTasks = (props) => {
   return (
-    <div class="listedTask">
+    <div className="listedTask">
       <p>{props.textContent}</p>
       <button onClick={props.removeTask}>x</button>
     </div>
