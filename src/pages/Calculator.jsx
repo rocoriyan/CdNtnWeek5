@@ -33,7 +33,7 @@ function Calculator() {
     let desiredPeriodLocation = firstSF + 1 //we want period to be in the location after that one.
     let powerOf = periodLocation - desiredPeriodLocation; //this is the power of 10 in the index notation
 
-    indexNotated = `${expression[firstSF]}.${expression[firstSF+1]}${expression[firstSF+1]} × 10^${powerOf}`
+    indexNotated = `${expression[firstSF]}.${expression[firstSF+1]}${expression[firstSF+1]} × 10^${powerOf}` // this is for 3 sig fig
     return indexNotated;
     */
   }

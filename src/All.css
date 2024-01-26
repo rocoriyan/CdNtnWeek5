@@ -1,3 +1,7 @@
+body{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 .main h1{
   margin: 10px;
 }
@@ -53,7 +57,7 @@
   justify-content: right;
   align-items: center;
   width: 235px;
-  height: 55px;
+  height: 75px;
   border: 2px black solid;
   overflow-y: hidden;
   padding-right:5px;
@@ -61,7 +65,7 @@
 
 .calcDisplay p{
   margin: 0;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .calcButton{
