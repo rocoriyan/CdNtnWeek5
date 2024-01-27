@@ -7,7 +7,7 @@ body{
 }
 
 .main hr{
-  width: 90%;
+  width: 350px;
 }
 
 .navbar{
@@ -47,12 +47,9 @@ body{
   background-color: rgb(187, 238, 171);
 }
 
-.calcBody div{
+.calcDisplay{
   box-sizing: border-box;
   background-color: rgb(228, 247, 212);
-}
-
-.calcDisplay{
   display: flex;
   justify-content: right;
   align-items: center;
@@ -66,6 +63,15 @@ body{
 .calcDisplay p{
   margin: 0;
   font-size: 30px;
+}
+
+.sigfigInfo{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 235px;
+  height: 20px;
+  padding-right:5px;
 }
 
 .calcButton{
@@ -91,8 +97,39 @@ body{
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: center;
 }
 
 .listedTask button{
-  height:max-content
+  height:max-content;
+}
+
+.taskHolder{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: 'ur left hand', 'M PLUS Rounded 1c', sans-serif;
+  border: 2px black solid;
+  min-height: 70px;
+  width: 600px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.addTaskSect{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:20px
+}
+
+.addTaskSect button{
+  width: max-content;
 }

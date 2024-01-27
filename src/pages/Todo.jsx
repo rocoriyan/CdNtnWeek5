@@ -13,7 +13,7 @@ function Todo() {
     setTasks(tasksCopy);
   }
 
-  const removeTask = (index) => {
+  const removeTask = (index) => { //remove task
     let tasksCopy = [...tasks];
     tasksCopy.splice(index, 1);
     setTasks(tasksCopy);
@@ -22,7 +22,10 @@ function Todo() {
   const taskInputRef = useRef(null);
 
   const handleClick = e => {
-    addTask(taskInputRef.current.value);
+    if(taskInputRef.current.value != ""){ //if not empty
+      addTask(taskInputRef.current.value); //add task
+      taskInputRef.current.value = ""; //clear task input bar
+    }
   }
 
   return (
@@ -33,13 +36,15 @@ function Todo() {
           return <ListedTasks key={index} textContent={task} removeTask={() => removeTask(index)}/>
         })}
       </div>
-      <input
-        type="text"
-        id="taskInput"
-        name="taskInput"
-        ref={taskInputRef}
-      />
-      <button onClick={handleClick}>Add task</button>
+      <div className="addTaskSect">
+        <input
+          type="text"
+          id="taskInput"
+          name="taskInput"
+          ref={taskInputRef}
+        />
+        <button onClick={handleClick}>Add task</button>
+      </div>
     </div>
   )
 }
