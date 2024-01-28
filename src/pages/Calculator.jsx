@@ -1,10 +1,31 @@
 import { useEffect, useState } from 'react'
 import { evaluate } from 'mathjs'
 import '../All.css'
+import { Howl } from 'howler';
 
 function Calculator() {
   const [displayNum, setDisplayNum] = useState("");
   const [beenRounded, setBeenRounded] = useState(false);
+
+  const sounds = {
+    clickOne: new Howl({
+      src:['src/assets/click1.mp3'],
+      volume:0.2,
+    }),
+    clickTwo: new Howl({
+      src:['src/assets/click2.mp3'],
+      volume:0.1,
+    }),
+    clickThree: new Howl({
+      src:['src/assets/click3.mp3'],
+      volume:0.2,
+    }),
+  }
+  function playClick(clickName){
+    let sound = sounds[clickName];
+    sound.currentTime=0;
+    sound.play();
+  };
 
   function cleanAndEval(expression){
     setBeenRounded(false);
@@ -64,15 +85,18 @@ function Calculator() {
   function handleClick(value){
     let sum = displayNum;
     if(value == "=" || value == "ENTER"){
+      playClick("clickThree");
       sum = cleanAndEval(displayNum);
       setDisplayNum(sum);
     }
     else if(value === "C"){
+      playClick("clickTwo");
       sum = "";
       setBeenRounded(false);
       setDisplayNum(sum);
     }
     else{
+      playClick("clickOne");
       sum = `${sum}${value}`;
       setDisplayNum(sum);
     }
