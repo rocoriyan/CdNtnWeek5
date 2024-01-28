@@ -6,21 +6,29 @@ import { Howl } from 'howler';
 function Calculator() {
   const [displayNum, setDisplayNum] = useState("");
   const [beenRounded, setBeenRounded] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [volume, setVolume] = useState(0);
 
   const sounds = {
     clickOne: new Howl({
       src:['https://github.com/rocoriyan/CdNtnWeek5/raw/main/src/assets/click1.mp3'],
-      volume:0.2,
+      volume:(0.2*volume),
     }),
     clickTwo: new Howl({
       src:['https://github.com/rocoriyan/CdNtnWeek5/raw/main/src/assets/click2.mp3'],
-      volume:0.1,
+      volume:(0.1*volume),
     }),
     clickThree: new Howl({
       src:['https://github.com/rocoriyan/CdNtnWeek5/raw/main/src/assets/click3.mp3'],
-      volume:0.2,
+      volume:(0.2*volume),
     }),
   }
+
+  function toggleMute(){
+    setIsMuted(!isMuted);
+    setVolume(isMuted ? (0) : (1));
+  }
+
   function playClick(clickName){
     let sound = sounds[clickName];
     sound.currentTime=0;
@@ -126,6 +134,7 @@ function Calculator() {
   return (
     <div className="main calculator">
       <h2>Calculator</h2>
+      <button className="muteButton" type="button" onClick={toggleMute}>{isMuted ? ("Mute audio") : ("Unmute audio")}</button>
       <div className="calcBody">
         <div className="calcDisplay">
           <p>{displayNum}</p>

@@ -43,7 +43,17 @@ body{
   justify-content: center;
 }
 
+.calculator h2{
+  margin-bottom: 0;
+}
+
+.muteButton{
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
 .calcBody{
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap:5px;
