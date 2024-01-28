@@ -31,19 +31,22 @@ function Todo() {
   return (
     <div className="main todo">
       <h2>To-do List</h2>
-      <div className="taskHolder">
-        {tasks.map((task, index) => {
-          return <ListedTasks key={index} textContent={task} removeTask={() => removeTask(index)}/>
-        })}
-      </div>
-      <div className="addTaskSect">
-        <input
-          type="text"
-          id="taskInput"
-          name="taskInput"
-          ref={taskInputRef}
-        />
-        <button onClick={handleClick}>Add task</button>
+      <div className="todoDivHolder">
+        <div className="taskSpacer"/>
+        <div className="taskHolder">
+          {tasks.map((task, index) => {
+            return <ListedTasks key={index} textContent={task} removeTask={() => removeTask(index)}/>
+          })}
+        </div>
+        <div className="addTaskSect">
+          <input
+            type="text"
+            id="taskInput"
+            name="taskInput"
+            ref={taskInputRef}
+          />
+          <button onClick={handleClick}>Add task</button>
+        </div>
       </div>
     </div>
   )
@@ -52,7 +55,7 @@ function Todo() {
 export const ListedTasks = (props) => {
   return (
     <div className="listedTask">
-      <p>{props.textContent}</p>
+      <p>{props.index}. {props.textContent}</p>
       <button onClick={props.removeTask}>x</button>
     </div>
   )

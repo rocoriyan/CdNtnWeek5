@@ -99,6 +99,19 @@ body{
   margin: 0;
 }
 
+.todoDivHolder{
+  width:100vw;
+  max-width: 1060px;
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  align-items: flex-start;
+}
+
+.taskSpacer{
+  width:210px;
+}
+
 .listedTask{
   display: flex;
   align-items: center;
@@ -122,7 +135,8 @@ body{
   font-family: 'ur left hand', 'M PLUS Rounded 1c', sans-serif;
   border: 2px black solid;
   min-height: 70px;
-  width: 600px;
+  width:95vw;
+  max-width: 600px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 20px;
@@ -130,13 +144,36 @@ body{
 }
 
 .addTaskSect{
+  width:210px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap:20px
+  gap:20px;
+  margin-top: 20px;
 }
 
 .addTaskSect button{
   width: max-content;
+}
+
+.addTaskSect input{
+  width: 200px
+}
+
+@media only screen and (max-width: 1090px) {
+  .taskSpacer{
+    width: 0;
+  }
+  .todoDivHolder{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:0px;
+  }
+  .addTaskSect{
+    position: inherit;
+    top:auto;
+    right:auto;
+  }
 }
