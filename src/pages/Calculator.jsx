@@ -63,11 +63,11 @@ function Calculator() {
 
   function handleClick(value){
     let sum = displayNum;
-    if(value == "="){
+    if(value == "=" || value == "ENTER"){
       sum = cleanAndEval(displayNum);
       setDisplayNum(sum);
     }
-    else if((value === "C")||(value === "c")){
+    else if(value === "C"){
       sum = "";
       setBeenRounded(false);
       setDisplayNum(sum);
@@ -80,8 +80,8 @@ function Calculator() {
 
   useEffect(() => {
     function handleKeyDown(e){
-      let keyToPass = e.key;
-      let possibleClicks = ["7","8","9","/","4","5","6","*","1","2","3","-","C","0","+","="];
+      let keyToPass = (e.key).toUpperCase();
+      let possibleClicks = ["7","8","9","/","4","5","6","*","1","2","3","-","C","0","+","=","ENTER"];
       let isPossible = (possibleClicks.indexOf(keyToPass) > -1);
       if(isPossible){
         /*beautify*/
