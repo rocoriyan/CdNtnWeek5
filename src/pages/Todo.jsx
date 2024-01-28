@@ -55,7 +55,7 @@ function Todo() {
 export const ListedTasks = (props) => {
   return (
     <div className="listedTask">
-      <p>{props.index}. {props.textContent}</p>
+      <p>• {props.textContent}</p>
       <button onClick={props.removeTask}>x</button>
     </div>
   )
