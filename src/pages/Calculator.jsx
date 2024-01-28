@@ -9,15 +9,15 @@ function Calculator() {
 
   const sounds = {
     clickOne: new Howl({
-      src:['src/assets/click1.mp3'],
+      src:['https://github.com/rocoriyan/CdNtnWeek5/raw/main/src/assets/click1.mp3'],
       volume:0.2,
     }),
     clickTwo: new Howl({
-      src:['src/assets/click2.mp3'],
+      src:['https://github.com/rocoriyan/CdNtnWeek5/raw/main/src/assets/click2.mp3'],
       volume:0.1,
     }),
     clickThree: new Howl({
-      src:['src/assets/click3.mp3'],
+      src:['https://github.com/rocoriyan/CdNtnWeek5/raw/main/src/assets/click3.mp3'],
       volume:0.2,
     }),
   }
