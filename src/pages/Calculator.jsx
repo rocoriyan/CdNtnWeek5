@@ -1,19 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { evaluate } from 'mathjs'
 import '../All.css'
 
 function Calculator() {
-  const [displayNum, setDisplayNum] = useState();
+  const [displayNum, setDisplayNum] = useState("");
   const [beenRounded, setBeenRounded] = useState(false);
-
-  let sum;
-
-  if(displayNum === undefined){
-    sum = "";
-  }
-  else{
-    sum = displayNum;
-  }
 
   function cleanAndEval(expression){
     setBeenRounded(false);
@@ -65,17 +56,18 @@ function Calculator() {
 
   function roundValue(expression){//the aim here is to make the expression not stupidly long. so "6.6664732583622743" -> "6.67 to 3 s.f". will be combined with convertToIN to make input look nice. this function will be performed first
     let roundedValue = parseFloat(expression.toPrecision(4)) //3 sig fig
-    return roundedValue    
+    return roundedValue;
   }
 
   const buttonValues = ["7","8","9","÷","4","5","6","×","1","2","3","–","C","0","+","="];
 
   function handleClick(value){
+    let sum = displayNum;
     if(value == "="){
       sum = cleanAndEval(displayNum);
       setDisplayNum(sum);
     }
-    else if(value == "C"){
+    else if((value === "C")||(value === "c")){
       sum = "";
       setBeenRounded(false);
       setDisplayNum(sum);
@@ -85,6 +77,27 @@ function Calculator() {
       setDisplayNum(sum);
     }
   }
+
+  useEffect(() => {
+    function handleKeyDown(e){
+      let keyToPass = e.key;
+      let possibleClicks = ["7","8","9","/","4","5","6","*","1","2","3","-","C","0","+","="];
+      let isPossible = (possibleClicks.indexOf(keyToPass) > -1);
+      if(isPossible){
+        /*beautify*/
+        keyToPass = keyToPass.toString().replace("*", "×");
+        keyToPass = keyToPass.toString().replace("/", "÷");
+        keyToPass = keyToPass.toString().replace("-", "–");
+        handleClick(keyToPass); //treat as button
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return() =>{
+      window.removeEventListener('keydown', handleKeyDown)
+    };
+  }, [displayNum]);
 
   return (
     <div className="main calculator">
