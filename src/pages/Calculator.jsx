@@ -26,7 +26,7 @@ function Calculator() {
 
   function toggleMute(){
     setIsMuted(!isMuted);
-    setVolume(isMuted ? (0) : (100));
+    setVolume(isMuted ? (0) : (1));
   }
 
   function playClick(clickName){
