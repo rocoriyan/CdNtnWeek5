@@ -111,7 +111,7 @@ function Calculator() {
         </div>
         {buttonValues.map((buttonValue, index) => {
           return(
-            <button key={index} className="calcButton" onClick={() => handleClick(buttonValue)}>{buttonValue}</button>
+            <button type="button" key={index} className="calcButton" onClick={() => handleClick(buttonValue)}>{buttonValue}</button>
         )})}
       </div>
     </div>

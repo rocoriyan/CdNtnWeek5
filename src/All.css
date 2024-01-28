@@ -126,9 +126,16 @@ body{
 }
 
 .listedTask button{
-  height:max-content;
+  height:20px;
+  width: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: red;
+  font-weight: 800;
+  background: none;
+  border: 2px red solid;
+  border-radius: 5px;
+  line-height: 0px;
 }
 
 .listedTask p{
@@ -152,7 +159,16 @@ body{
   border-radius: 20px;
 }
 
-.addTaskSect{
+.addTaskSect button{
+  width: max-content;
+  height: max-content;
+}
+
+.addTaskSect input{
+  width: 200px
+}
+
+.addTaskSect form{
   width:210px;
   display: flex;
   flex-direction: column;
@@ -160,14 +176,6 @@ body{
   justify-content: center;
   gap:20px;
   margin-top: 20px;
-}
-
-.addTaskSect button{
-  width: max-content;
-}
-
-.addTaskSect input{
-  width: 200px
 }
 
 @media only screen and (max-width: 1090px) {

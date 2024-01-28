@@ -21,6 +21,7 @@ function Todo() {
   const taskInputRef = useRef(null);
 
   const handleClick = e => {
+    e.preventDefault();
     if(taskInputRef.current.value != ""){ //if not empty
       addTask(taskInputRef.current.value); //add task
       taskInputRef.current.value = ""; //clear task input bar
@@ -38,13 +39,15 @@ function Todo() {
           })}
         </div>
         <div className="addTaskSect">
-          <input
-            type="text"
-            id="taskInput"
-            name="taskInput"
-            ref={taskInputRef}
-          />
-          <button onClick={handleClick}>Add task</button>
+          <form onSubmit={handleClick}>
+            <input
+              type="text"
+              id="taskInput"
+              name="taskInput"
+              ref={taskInputRef}
+            />
+            <button type="submit">Add task</button>
+          </form>
         </div>
       </div>
     </div>
@@ -55,7 +58,7 @@ export const ListedTasks = (props) => {
   return (
     <div className="listedTask">
       <p>• {props.textContent}</p>
-      <button onClick={props.removeTask}>x</button>
+      <button type="button" onClick={props.removeTask}>X</button>
     </div>
   )
 }
