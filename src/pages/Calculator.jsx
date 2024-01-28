@@ -56,7 +56,7 @@ function Calculator() {
         break;
       }
     }
-    let powerOf = periodLocation - firstSF; //this is the power of 10 in the index notation
+    let powerOf = periodLocation - firstSF - 1; //this is the power of 10 in the index notation
 
     let indexNotated = `${expressionStr[firstSF]}.${expressionStr[firstSF+1]}${expressionStr[firstSF+2]}${expressionStr[firstSF+3]} × 10^${powerOf}` // this is for 3 sig fig
     return indexNotated;
