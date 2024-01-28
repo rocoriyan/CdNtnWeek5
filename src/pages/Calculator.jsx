@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { evaluate, index } from 'mathjs'
+import { evaluate } from 'mathjs'
 import '../All.css'
 
 function Calculator() {

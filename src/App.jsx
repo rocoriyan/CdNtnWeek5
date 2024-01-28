@@ -10,7 +10,6 @@ import Navbar from './Navbar';
 import Calculator from './pages/Calculator';
 import NotFound from './pages/NotFound';
 import Todo from './pages/Todo';
-import InitialTasks from './pages/InitialTasks';
 
 const FullPage = () =>{
   return(
@@ -46,14 +45,6 @@ const router = createHashRouter([
     children:[{
       path: "/todo",
       element: <Todo />,
-    },],
-  },
-  {
-    path: "/initial",
-    element: <FullPage/>,
-    children:[{
-      path: "/initial",
-      element: <InitialTasks />,
     },],
   },
   {

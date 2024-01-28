@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { evaluate } from 'mathjs'
 import '../All.css'
 import { useRef } from 'react';
 
